@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | FUTIAHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <script src="https://kit.fontawesome.com/d2af653d3a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="menu-overlay" class="overlay"></div>
+    <nav id="side-menu" class="side-menu">
+        <div class="menu-header">
+            <h3>Menu</h3>
+            <i class="fas fa-times" id="close-menu"></i>
+        </div>
+        <div class="menu-content">
+            <a href="faq.html"><i class="fas fa-question-circle"></i> FAQ</a>
+            <a href="privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+            <a href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a href="#" id="invite-friend"><i class="fas fa-user-plus"></i> Invite a Friend</a>
+            <hr>
+            <button id="logout-btn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </nav>
+</main>
+
+    <header class="main-header">
+        <i class="fas fa-bars-staggered" id="open-menu"></i>
+        <h1 class="logo">FUTIA<span>Hub</span></h1>
+        <i class="fas fa-moon" id="dark-mode-toggle"></i>
+    </header>
+
+
+    <main id="feed-container">
+        <div class="post-actions">
+            <button onclick="openModal('photo-modal')" class="btn-action-main green">
+                <i class="fas fa-camera"></i> Post Update
+            </button>
+            <button onclick="openModal('pdf-modal')" class="btn-action-main orange">
+                <i class="fas fa-file-pdf"></i> Share PDF
+            </button>
+        </div>
+
+        <div id="main-feed">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+        </div>
+        <div id="infinite-scroll-trigger"></div>
+    </main>
+
+    <div id="photo-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>New Update</h3>
+                <i class="fas fa-times" onclick="closeModal('photo-modal')"></i>
+            </div>
+            <div id="preview-container"></div>
+            <input type="file" id="post-photo" accept="image/*" multiple hidden>
+            <label for="post-photo" class="file-label">
+                <i class="fas fa-images"></i> <span>Tap to add photos (Max 2)</span>
+            </label>
+            <textarea id="post-caption" class="form-input" placeholder="What's happening?"></textarea>
+            <p class="encryption-note"><i class="fas fa-lock"></i> Updates are end-to-end encrypted. They disappear after 24h.</p>
+            <button id="submit-post" class="btn-submit">Post <span class="spinner hidden"></span></button>
+        </div>
+    </div>
+
+    <div id="pdf-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Share Academic PDF</h3>
+                <i class="fas fa-times" onclick="closeModal('pdf-modal')"></i>
+            </div>
+            <input type="file" id="pdf-file" accept="application/pdf" hidden>
+            <label for="pdf-file" class="file-label pdf-style">
+                <i class="fas fa-file-circle-plus"></i> <span>Choose PDF File</span>
+            </label>
+            <p class="encryption-note"><i class="fas fa-shield-halved"></i> PDFs are encrypted and only visible to your department/level.</p>
+            <button id="submit-pdf" class="btn-submit">Upload PDF</button>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="home.html" class="active"><i class="fas fa-house"></i></a>
+        <a href="search.html"><i class="fas fa-magnifying-glass"></i></a>
+        <a href="marketplace.html"><i class="fas fa-store"></i></a>
+        <a href="notifications.html"><i class="fas fa-bell"></i></a>
+        <a href="profile.html"><i class="fas fa-circle-user"></i></a>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>

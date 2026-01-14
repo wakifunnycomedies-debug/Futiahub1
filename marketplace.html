@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | FUTIAHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/market.css">
+    <script src="https://kit.fontawesome.com/d2af653d3a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="menu-overlay" class="overlay"></div>
+    <nav id="side-menu" class="side-menu">
+        <div class="menu-header">
+            <h3>FUTIA Market</h3>
+            <i class="fas fa-times" id="close-menu"></i>
+        </div>
+        <div class="menu-content">
+            <a href="home.html"><i class="fas fa-house"></i> Back to Feed</a>
+            <a href="#"><i class="fas fa-box-open"></i> My Listings</a>
+            <a href="#"><i class="fas fa-heart"></i> Saved Items</a>
+            <hr>
+            <button id="logout-btn" class="btn-logout">Logout</button>
+        </div>
+    </nav>
+    <header class="main-header">
+    <i class="fas fa-bars-staggered" id="open-menu"></i>
+    <div class="market-search-container">
+        <input type="text" id="market-search-input" placeholder="Search FUTIA Market...">
+        <button id="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+</header>
+
+    <main class="market-container">
+        <div class="market-header-actions">
+            <h2>Marketplace</h2>
+            <button class="sell-btn" onclick="openModal('sell-modal')">
+                <i class="fas fa-plus"></i> Sell
+            </button>
+        </div>
+
+        <div id="product-grid" class="product-grid">
+            <div class="skeleton-card"></div>
+            <div class="skeleton-card"></div>
+        </div>
+    </main>
+
+    <div id="sell-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>List New Item</h3>
+                <i class="fas fa-times" onclick="closeModal('sell-modal')"></i>
+            </div>
+            
+            <div id="market-preview-container" class="preview-container"></div>
+            <input type="file" id="product-photo" accept="image/*" hidden>
+            <label for="product-photo" class="file-label">
+                <i class="fas fa-camera"></i> <span>Add Product Photo</span>
+            </label>
+
+            <div class="form-grid">
+                <input type="text" id="item-name" class="form-input" placeholder="What are you selling?">
+                <input type="number" id="item-price" class="form-input" placeholder="Price (₦)">
+                <select id="item-category" class="form-input">
+                    <option value="Electronics">Electronics</option>
+                    <option value="Books">Books/Stationary</option>
+                    <option value="Fashion">Fashion</option>
+                    <option value="Food">Food/Snacks</option>
+                </select>
+                <textarea id="item-desc" class="form-input" placeholder="Describe your item..."></textarea>
+            </div>
+
+            <button id="submit-listing" class="btn-submit">List Item</button>
+        </div>
+    </div>
+
+    <nav class="bottom-nav">
+        <a href="home.html"><i class="fas fa-house"></i></a>
+        <a href="search.html"><i class="fas fa-magnifying-glass"></i></a>
+        <a href="marketplace.html" class="active"><i class="fas fa-store"></i></a>
+        <a href="notifications.html"><i class="fas fa-bell"></i></a>
+        <a href="profile.html"><i class="fas fa-circle-user"></i></a>
+    </nav>
+
+    <script>
+    // This ensures the functions are available even if market.js fails to load
+    function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop scrolling
+        }
+    }
+
+    function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Enable scrolling
+        }
+    }
+
+    // Manual Side Menu Logic
+    document.addEventListener('DOMContentLoaded', () => {
+        const openBtn = document.getElementById('open-menu');
+        const closeBtn = document.getElementById('close-menu');
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.getElementById('menu-overlay');
+
+        if(openBtn) openBtn.onclick = () => {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        };
+
+        const hide = () => {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        };
+
+        if(closeBtn) closeBtn.onclick = hide;
+        if(overlay) overlay.onclick = hide;
+    });
+</script>
+
+<script>
+    // 1. SIDE MENU LOGIC
+    document.addEventListener('DOMContentLoaded', () => {
+        const openBtn = document.getElementById('open-menu');
+        const closeBtn = document.getElementById('close-menu');
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.getElementById('menu-overlay');
+
+        if(openBtn) openBtn.onclick = () => {
+            sideMenu.classList.add('active');
+            overlay.classList.add('active');
+        };
+
+        const hideMenu = () => {
+            sideMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        };
+
+        if(closeBtn) closeBtn.onclick = hideMenu;
+        if(overlay) overlay.onclick = hideMenu;
+    });
+
+    // 2. MODAL LOGIC (Global scope)
+    window.openModal = function(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+    };
+
+    window.closeModal = function(id) {
+        const modal = document.getElementById(id);
+        if (modal) {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+    };
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/market.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>

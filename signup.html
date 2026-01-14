@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | FUTIAHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+    <script src="https://kit.fontawesome.com/d2af653d3a.js" crossorigin="anonymous"></script>
+</head>
+<body class="light-mode"> <header>
+        <h1>FUTIAHub</h1>
+        <p>The ultimate utility hub for Federal University of Technology Ikot Abasi students.</p>
+    </header>
+
+    <main class="auth-container">
+        <form id="signup-form">
+            <h2>Create Account</h2>
+            
+            <div class="input-group">
+                <i class="fas fa-user"></i>
+                <input type="text" id="full-name" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-id-badge"></i>
+                <input type="text" id="nickname" placeholder="Nickname" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="Student Email" required>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Password" required>
+                <i class="fas fa-eye" id="togglePassword" style="cursor: pointer;"></i>
+            </div>
+
+            <button type="submit" class="btn-primary">Join FUTIAHub</button>
+            <p>Already have an account? <a href="index.html">Login</a></p>
+        </form>
+    </main>
+
+    <footer>
+        <p>An Uwakmfon Theophilus Production 2026</p>
+        <div class="footer-links">
+            <a href="about.html">About Us</a> | <a href="faq.html">FAQ</a> | <a href="privacy.html">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

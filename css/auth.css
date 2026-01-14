@@ -1,0 +1,213 @@
+/* auth.css */
+:root {
+    --primary-orange: #FF8C00;
+    --forest-green: #228B22;
+    --accent-yellow: #FFD700;
+    --white: #FFFFFF;
+    --light-gray: #f4f7f6;
+    --dark-text: #2d3436;
+}
+
+body {
+    background: linear-gradient(135deg, var(--forest-green) 0%, #1a5e1a 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 20px;
+    color: var(--dark-text);
+}
+
+/* Header Description */
+header {
+    text-align: center;
+    color: var(--white);
+    margin-bottom: 30px;
+    max-width: 450px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+    color: var(--accent-yellow);
+}
+
+header p {
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Professional Form Card */
+.auth-container {
+    background: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--forest-green);
+    font-size: 1.8rem;
+}
+
+/* Input Groups */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i:not(#togglePassword) {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--forest-green);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 45px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-orange);
+    outline: none;
+    box-shadow: 0 0 8px rgba(255, 140, 0, 0.2);
+}
+
+/* Password Toggle Icon */
+#togglePassword {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#togglePassword:hover {
+    color: var(--primary-orange);
+}
+
+/* Professional Button */
+.btn-primary {
+    width: 100%;
+    padding: 14px;
+    background: var(--forest-green);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background: var(--primary-orange);
+    transform: translateY(-2px);
+}
+
+.auth-container p {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.auth-container a {
+    color: var(--forest-green);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Professional Footer */
+footer {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--white);
+    font-size: 0.85rem;
+}
+
+.footer-links {
+    margin-top: 10px;
+}
+
+.footer-links a {
+    color: var(--accent-yellow);
+    text-decoration: none;
+    margin: 0 10px;
+    transition: opacity 0.3s;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Profile Setup Specific Styles */
+.profile-upload-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+#image-preview {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid var(--forest-green);
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+#image-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#default-icon {
+    font-size: 100px;
+    color: #ccc;
+}
+
+.upload-btn {
+    background: var(--primary-orange);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+select, textarea {
+    width: 100%;
+    padding: 12px 45px;
+    border: 2px solid #eee;
+    border-radius: 8px;
+    background: white;
+    font-family: inherit;
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}

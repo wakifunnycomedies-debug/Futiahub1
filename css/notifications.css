@@ -1,0 +1,108 @@
+.notifications-container {
+    padding: 10px;
+    max-width: 600px;
+    margin: 0 auto 80px;
+}
+
+.notif-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.filter-chip {
+    padding: 6px 15px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    color: var(--text-sub);
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.filter-chip.active {
+    background: var(--forest-green);
+    color: white;
+    border-color: var(--forest-green);
+}
+
+.notif-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    margin-bottom: 8px;
+    transition: 0.3s;
+    border-left: 4px solid transparent;
+}
+
+.notif-item.unread {
+    background: rgba(34, 139, 34, 0.05);
+    border-left: 4px solid var(--forest-green);
+}
+
+.notif-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.notif-content {
+    flex: 1;
+}
+
+.notif-content p {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    line-height: 1.4;
+    margin: 0;
+}
+
+.notif-content b {
+    color: var(--text-main);
+}
+
+.notif-time {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-sub);
+    margin-top: 4px;
+}
+
+.notif-icon {
+    font-size: 0.8rem;
+    margin-left: 10px;
+    color: var(--forest-green);
+}
+
+/* Fix Side Menu Header positioning */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: var(--forest-green);
+    color: white;
+}
+
+#close-menu {
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    transition: 0.3s;
+}
+
+#close-menu:hover {
+    transform: rotate(90deg);
+    color: var(--primary-orange);
+}
+
+/* Departmental Notification Styling */
+.notif-item.dept-alert {
+    border-left: 4px solid var(--primary-orange);
+    background: rgba(255, 165, 0, 0.05);
+}

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | FUTIAHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="https://kit.fontawesome.com/d2af653d3a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div id="menu-overlay" class="overlay"></div>
+    <nav id="side-menu" class="side-menu">
+        <div class="menu-header">
+            <h3>Menu</h3>
+            <i class="fas fa-times" id="close-menu"></i>
+        </div>
+        <div class="menu-content">
+            <a href="home.html"><i class="fas fa-house"></i> Feed</a>
+            <a href="marketplace.html"><i class="fas fa-store"></i> Market</a>
+            <hr>
+            <button id="logout-btn" class="btn-logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </div>
+    </nav>
+
+    <header class="main-header">
+        <i class="fas fa-bars-staggered" id="open-menu"></i>
+        <h1 class="logo">FUTIA<span>Hub</span></h1>
+        <i class="fas fa-moon" id="dark-mode-toggle"></i>
+    </header>
+
+    <main class="profile-container">
+        <section class="profile-card">
+            <div class="profile-banner"></div>
+            <div class="profile-avatar-wrapper">
+                <img id="display-avatar" src="" alt="Profile">
+                <button class="edit-btn-float" onclick="toggleEditForm()"><i class="fas fa-pen"></i></button>
+            </div>
+
+            <div class="profile-info">
+                <h2 id="display-fullname">Loading...</h2>
+                <p id="display-nickname" class="nickname-tag">Loading...</p>
+                <p id="display-bio" class="bio-text">Loading...</p>
+                
+                <div class="academic-meta">
+                    <span><i class="fas fa-university"></i> <b id="display-dept">...</b></span>
+                    <span><i class="fas fa-layer-group"></i> <b id="display-level">...</b></span>
+                </div>
+
+                <div class="profile-meta">
+                    <span><i class="fas fa-heart"></i> <b id="display-status">Single</b></span>
+                    <span><i class="fas fa-calendar-alt"></i> Joined <b id="display-joined">...</b></span>
+                </div>
+
+                <div class="hobbies-tags" id="display-hobbies"></div>
+
+                <a id="whatsapp-link" href="#" class="btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Message
+                </a>
+            </div>
+        </section>
+
+        <section class="user-activity">
+    <div class="tabs-header">
+        <button class="tab-btn active" onclick="switchTab('posts')">
+            <i class="fas fa-th"></i> Updates
+        </button>
+        <button class="tab-btn" onclick="switchTab('market')">
+            <i class="fas fa-shopping-bag"></i> Products
+        </button>
+    </div>
+
+    <div id="user-posts-feed" class="activity-feed">
+        <p class="loading-text">Fetching your updates...</p>
+    </div>
+</section>
+
+        <section id="edit-profile-section" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Update Profile</h3>
+                    <i class="fas fa-times" onclick="toggleEditForm()"></i>
+                </div>
+                
+                <div class="upload-circle-wrapper">
+    <img id="avatar-preview" src="">
+    
+    <input type="file" id="new-avatar" accept="image/*" hidden>
+    
+    <label for="new-avatar" class="avatar-upload-icon">
+        <i class="fas fa-camera"></i>
+    </label>
+</div>
+
+                <div class="form-grid">
+                    <input type="text" id="edit-fullname" class="form-input" placeholder="Full Name">
+                    <input type="text" id="edit-nickname" class="form-input" placeholder="Nickname">
+
+
+                    <textarea id="edit-bio" class="form-input" placeholder="Bio"></textarea>
+                    
+                    <select id="edit-status" class="form-input">
+                        <option value="" disabled selected>Select relationship-status</option>
+                        <option value="Single">Single</option>
+                        <option value="In a relationship">In a relationship</option>
+                        <option value="Focused on CGPA">Focused on CGPA</option>
+                    </select>
+
+                    <input type="text" id="edit-hobbies" class="form-input" placeholder="Hobbies (e.g Coding, Music)">
+                    
+                    <div class="whatsapp-input-group">
+                        <input type="tel" id="edit-whatsapp" class="form-input" placeholder="WhatsApp Number (e.g 8123...)">
+                    </div>
+                </div>
+
+                <button id="save-profile" class="btn-submit">Save Changes <span class="spinner hidden"></span></button>
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <a href="home.html"><i class="fas fa-house"></i></a>
+        <a href="search.html"><i class="fas fa-magnifying-glass"></i></a>
+        <a href="marketplace.html"><i class="fas fa-store"></i></a>
+        <a href="notifications.html"><i class="fas fa-bell"></i></a>
+        <a href="profile.html" class="active"><i class="fas fa-circle-user"></i></a>
+    </nav>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>

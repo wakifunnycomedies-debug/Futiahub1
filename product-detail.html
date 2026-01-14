@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | Hub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/market.css">
+    <script src="https://kit.fontawesome.com/d2af653d3a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <i class="fas fa-arrow-left" onclick="history.back()" style="cursor:pointer;"></i>
+        <h1 class="logo" style="margin-left: 15px;">Market<span>Place</span></h1>
+    </header>
+
+    <main class="product-detail-container">
+        <div class="product-image-slider">
+            <img id="detail-image" src="https://via.placeholder.com/400" alt="Product">
+        </div>
+
+        <div class="product-content">
+            <div class="detail-header">
+                <h1 id="detail-name">Loading Product...</h1>
+                <p class="detail-price" id="detail-price">₦0.00</p>
+            </div>
+            
+            <p class="detail-desc" id="detail-desc">Fetching details from the Hub...</p>
+            
+            <div class="seller-card">
+                <img id="seller-avatar" src="https://api.dicebear.com/7.x/avataaars/svg?seed=FUTIA" class="avatar-sm">
+                <div class="seller-info">
+                    <h4 id="seller-name">Seller Name</h4>
+                    <span id="seller-joined">Joined  ---</span>
+                </div>
+            </div>
+
+            <a id="buy-btn" href="#" class="btn-whatsapp-large" target="_blank">
+                <i class="fab fa-whatsapp"></i> Chat with Seller on WhatsApp
+            </a>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/product-detail.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>

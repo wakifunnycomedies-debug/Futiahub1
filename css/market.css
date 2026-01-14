@@ -1,0 +1,173 @@
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 items per row */
+    gap: 10px;
+    padding: 10px;
+}
+
+.product-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+}
+
+.product-image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 10px;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--text-main);
+    display: block;
+}
+
+.product-name {
+    font-size: 0.9rem;
+    color: var(--text-sub);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sell-btn {
+    background: var(--forest-green);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.market-header-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+/* --- SEARCH BAR STYLING --- */
+.market-search-container {
+    display: flex;
+    background: var(--bg-color);
+    border-radius: 25px;
+    padding: 5px 15px;
+    flex: 1;
+    margin: 0 15px;
+    border: 1px solid var(--border-color);
+    align-items: center;
+}
+
+#market-search-input {
+    border: none;
+    background: transparent;
+    padding: 8px;
+    width: 100%;
+    color: var(--text-main);
+    outline: none;
+}
+
+#search-btn {
+    background: transparent;
+    border: none;
+    color: var(--forest-green);
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 5px;
+}
+
+/* --- BUTTON & MODAL FIXES --- */
+.sell-btn {
+    background: var(--forest-green);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(34, 139, 34, 0.3);
+    z-index: 10; /* Ensure it stays clickable */
+}
+
+.sell-btn:active {
+    transform: scale(0.95);
+}
+
+/* Ensure Modal is on top of everything */
+.modal {
+    z-index: 9999 !important;
+}
+
+.overlay {
+    z-index: 9998 !important;
+}
+
+.product-detail-container {
+    padding-bottom: 80px;
+}
+
+.product-image-slider img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+}
+
+.product-content {
+    padding: 20px;
+    background: var(--card-bg);
+    border-radius: 25px 25px 0 0;
+    margin-top: -25px;
+    position: relative;
+    box-shadow: 0 -10px 20px rgba(0,0,0,0.05);
+}
+
+.detail-price {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--forest-green);
+    margin: 10px 0;
+}
+
+.seller-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: var(--bg-color);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 25px 0;
+}
+
+.avatar-sm {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.btn-whatsapp-large {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 18px;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Details | FUTIAHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/home.css">
+    <script src="https://kit.fontawesome.com/d2af653d3a.js" crossorigin="anonymous"></script>
+    <style>
+        .detail-view { margin-top: 70px; border-radius: 0; box-shadow: none; }
+        .comment-section-title { padding: 15px; font-weight: bold; border-bottom: 1px solid #eee; }
+        .comment-input-area { 
+            position: fixed; bottom: 0; width: 100%; max-width: 500px; 
+            left: 50%; transform: translateX(-50%); padding: 10px;
+            background: #fff; display: flex; gap: 10px; align-items: center;
+            border-top: 1px solid #eee;
+        }
+        #comment-input { flex: 1; padding: 10px; border-radius: 20px; border: 1px solid #ddd; outline: none; }
+        #submit-comment { background: var(--primary-color, #007bff); color: #fff; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
+        #comment-list { padding-bottom: 80px; }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <a href="home.html" style="color: inherit;"><i class="fas fa-arrow-left"></i></a>
+        <h1 class="logo" style="flex: 1; margin-left: 15px;">Discussion</h1>
+    </header>
+
+    <main>
+        <div id="post-detail-container">
+            <div class="skeleton-card"></div>
+        </div>
+
+        <div class="comment-section-title">Comments</div>
+
+        <div id="comment-list">
+            </div>
+    </main>
+
+    <div class="comment-input-area">
+        <input type="text" id="comment-input" placeholder="Write a comment...">
+        <button id="submit-comment"><i class="fas fa-paper-plane"></i></button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/post-details.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>

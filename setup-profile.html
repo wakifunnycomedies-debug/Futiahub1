@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setup Profile | FUTIAHub</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css"> <script src="https://kit.fontawesome.com/d2af653d3a.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <main class="auth-container" style="max-width: 500px;">
+        <form id="setup-form">
+            <h2>Complete Your Profile</h2>
+            
+            <div class="profile-upload-container">
+                <div id="image-preview">
+                    <i class="fas fa-user-circle" id="default-icon"></i>
+                </div>
+                <label for="profile-photo" class="upload-btn">
+                    <i class="fas fa-camera"></i> Upload Photo
+                </label>
+                <input type="file" id="profile-photo" accept="image/*" hidden>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-university"></i>
+                <select id="department" required>
+                    <option value="" disabled selected>Select Department</option>
+                    <option value="Computer Science">Computer Science</option>
+                    <option value="Cyber Security">Cyber Security</option>
+                    <option value="Software Engineering">Software Engineering</option>
+                    <option value="Cyber Security">Library And Information Technology</option>
+                    <option value="Cyber Security">Environmental Science</option>
+                    <option value="Cyber Security">Physics</option>
+                    <option value="Cyber Security">Microbiology</option>
+                    <option value="Cyber Security">Naval Archithecture</option>
+                    <option value="Cyber Security">Civil Engineering</option>
+                    <option value="Cyber Security">Electrical Engineering</option> 
+                    <option value="Cyber Security">Food Science</option>
+                    <option value="Cyber Security">BioChemistry</option>
+                    <option value="Cyber Security">Accounting</option>
+                    <option value="Cyber Security">Business Management</option>
+                    <option value="Cyber Security">Aerospace Engineering</option>
+                    <option value="Cyber Security">Mechanical Engineering</option>
+                    </select>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-layer-group"></i>
+                <select id="level" required>
+                    <option value="" disabled selected>Select Level</option>
+                    <option value="100">100 Level</option>
+                    <option value="200">200 Level</option>
+                    <option value="300">300 Level</option>
+                    <option value="400">400 Level</option>
+                    <option value="500">500 Level</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-heart"></i>
+                <select id="relationship-status">
+                    <option value="Single">Single</option>
+                    <option value="In a relationship">In a relationship</option>
+                    <option value="Engaged">Engaged</option>
+                    <option value="Married">Married</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-pen"></i>
+                <textarea id="bio" placeholder="Tell us about yourself..." maxlength="150"></textarea>
+            </div>
+
+            <div class="input-group">
+                <i class="fas fa-running"></i>
+                <input type="text" id="hobbies" placeholder="Hobbies (e.g. Coding, Football)">
+            </div>
+
+            <button type="submit" class="btn-primary" id="save-profile">Save & Enter Hub</button>
+        </form>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-config.js"></script>
+    <script src="js/setup.js"></script>
+</body>
+</html>

@@ -1,0 +1,883 @@
+/* home.css */
+
+/* 1. Modal Logic (Essential) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none; /* Hidden by default */
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex; /* Show when active */
+}
+
+.modal-content {
+    background: var(--card-bg);
+    width: 100%;
+    max-width: 450px;
+    padding: 25px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 2. Professional Post Buttons */
+.post-actions {
+    display: flex;
+    gap: 10px;
+    padding: 15px;
+}
+
+.btn-action-main {
+    flex: 1;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-action-main.green { background: var(--forest-green); color: white; }
+.btn-action-main.orange { background: var(--primary-orange); color: white; }
+
+/* 3. Form Styling */
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    color: var(--text-main);
+    border-radius: 10px;
+    margin-top: 15px;
+    font-family: inherit;
+}
+
+.file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    border: 2px dashed var(--forest-green);
+    border-radius: 15px;
+    cursor: pointer;
+    color: var(--forest-green);
+    gap: 10px;
+}
+
+.file-label.pdf-style {
+    border-color: var(--primary-orange);
+    color: var(--primary-orange);
+}
+
+.file-label i { font-size: 2.5rem; }
+
+.btn-submit {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: var(--forest-green);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 4. Side Menu & Overlays */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 999;
+}
+
+.overlay.active { display: block; }
+
+.btn-logout {
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* 5. Bottom Nav Fix */
+.bottom-nav a {
+    flex: 1;
+    text-align: center;
+    text-decoration: none;
+    padding: 10px 0;
+}
+
+.encryption-note {
+    font-size: 0.75rem;
+    color: var(--text-sub);
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.btn-logout {
+    margin-top: 20px;
+    background: #ff4757;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* --- BOTTOM NAVIGATION --- */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background: var(--nav-bg);
+    backdrop-filter: blur(10px); /* Glassmorphism effect */
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    z-index: 1000;
+    padding-bottom: env(safe-area-inset-bottom); /* Fix for iPhones */
+}
+
+.bottom-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-sub);
+    transition: 0.3s;
+    flex: 1;
+}
+
+.bottom-nav a i {
+    font-size: 1.5rem;
+    margin-bottom: 2px;
+}
+
+.bottom-nav a.active {
+    color: var(--forest-green);
+}
+
+.bottom-nav a.active i {
+    transform: translateY(-5px); /* Active lift effect */
+    color: var(--forest-green);
+}
+
+/* --- THEME TOGGLE ICON FIX --- */
+#dark-mode-toggle {
+    cursor: pointer;
+    font-size: 1.3rem;
+    color: var(--primary-orange);
+    padding: 10px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+#dark-mode-toggle:hover {
+    background: rgba(255, 140, 0, 0.1);
+}
+
+.market-grid-section {
+    background: var(--card-bg);
+    margin: 15px 0;
+    padding: 15px;
+    border-top: 5px solid var(--faint-yellow);
+}
+
+.market-grid {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto; /* Allow side-scrolling for items */
+    padding-bottom: 10px;
+    scrollbar-width: none; /* Hide scrollbar for clean look */
+}
+
+.market-item {
+    min-width: 150px;
+    max-width: 150px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.market-item img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+.market-item p {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin: 5px 0;
+}
+
+.market-item span {
+    color: var(--forest-green);
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.options-dropdown {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    z-index: 10;
+    width: 120px;
+}
+
+.options-dropdown button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    text-align: left;
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.options-dropdown button:hover {
+    background: var(--light-gray);
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Ensure the preview container can actually show images */
+#preview-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    min-height: 10px;
+}
+
+.preview-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--forest-green);
+}
+
+.remove-img {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    color: #ff4757;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    z-index: 10;
+}
+
+/* Modal default state */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* --- MAIN FEED CONTAINER --- */
+#main-feed {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* --- POST CARD --- */
+.post-card {
+    background: #ffffff;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border: 1px solid #f0f0f0;
+    transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-2px);
+}
+
+/* --- POST HEADER --- */
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 12px;
+    border: 2px solid var(--forest-green);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info strong {
+    font-size: 1rem;
+    color: white;
+    font-weight: 700;
+}
+
+.user-info span {
+    font-size: 0.75rem;
+    color: #888;
+}
+
+/* --- POST BODY --- */
+.post-body {
+    margin-bottom: 15px;
+}
+
+.post-body p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #d6c0c0;
+    margin-bottom: 10px;
+    white-space: pre-wrap; /* Preserves line breaks from caption */
+}
+
+.post-img {
+    width: 100%;
+    max-height: 450px;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+}
+
+/* --- POST FOOTER & BUTTONS --- */
+.post-footer {
+    display: flex;
+    gap: 15px;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+}
+
+.post-footer button {
+    flex: 1;
+    background: #f8f9fa;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    color: #555;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.post-footer button i {
+    font-size: 1rem;
+}
+
+/* Hover effects for buttons */
+.post-footer button:hover {
+    background: #eef2f3;
+    color: var(--forest-green);
+}
+
+/* WhatsApp specific button style */
+.post-footer button:last-child:hover {
+    color: #25D366; /* WhatsApp Green */
+    background: #e6f7ed;
+}
+
+/* Empty State Message */
+.empty-msg {
+    text-align: center;
+    padding: 50px;
+    color: #888;
+    font-style: italic;
+}
+
+/* --- MARKETPLACE SUGGESTIONS (In-Feed) --- */
+.market-grid-section {
+    background: #fff;
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    border: 1px dashed var(--forest-green);
+}
+
+.market-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.market-header h4 {
+    color: var(--forest-green);
+    font-size: 0.9rem;
+}
+
+.market-header a {
+    font-size: 0.75rem;
+    text-decoration: none;
+    font-weight: bold;
+    color: #888;
+}
+
+.market-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.market-item {
+    background: #f9f9f9;
+    padding: 8px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.market-item img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.market-item p {
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.market-item span {
+    font-size: 0.7rem;
+    color: var(--forest-green);
+}
+
+.post-card {
+    /* Change background from #ffffff to a variable */
+    background: var(--card-bg, #ffffff); 
+    border-radius: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    /* Use a subtle variable for the border and shadow too */
+    border: 1px solid var(--border-color, #f0f0f0);
+    box-shadow: 0 4px 12px var(--shadow-color, rgba(224, 215, 215, 0.924));
+    transition: transform 0.2s ease;
+}
+
+.post-footer button {
+    flex: 1;
+    /* Ensure buttons also adapt to dark mode */
+    background: var(--bg-color, #f8f9fa);
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    color: var(--text-main, white);
+    font-weight: 600;
+}
+
+.post-header { position: relative; display: flex; align-items: center; gap: 10px; }
+.post-menu-trigger { margin-left: auto; cursor: pointer; padding: 10px; color: #777; }
+.post-options-dropdown {
+    position: absolute; right: 0; top: 40px; background: white; 
+    border: 1px solid #ddd; border-radius: 8px; display: none; 
+    flex-direction: column; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.post-options-dropdown.active { display: flex; }
+.post-options-dropdown button {
+    padding: 10px 20px; border: none; background: none; text-align: left;
+    cursor: pointer; font-size: 14px; display: flex; align-items: center; gap: 8px;
+}
+.post-options-dropdown button:hover { background: #f5f5f5; }
+.delete-opt { color: red; }
+.user-avatar, .user-info strong { cursor: pointer; }
+
+/* 1. FEED POST IMAGES - Standardizing the view */
+.post-img {
+    width: 100%;
+    max-height: 400px; /* Prevents long scrolling for vertical photos */
+    object-fit: cover; /* Crops nicely without stretching */
+    border-radius: 12px;
+    margin-top: 10px;
+    cursor: pointer;
+    border: 1px solid #eee;
+    display: block;
+}
+
+/* 2. MODAL PREVIEW CONTAINER - When you are about to post */
+#preview-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.preview-wrapper {
+    position: relative;
+    width: 120px; /* Small square thumbnail */
+    height: 120px;
+}
+
+.preview-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid var(--primary-color, #007bff);
+}
+
+/* Remove button on the preview */
+.remove-img {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: white;
+    color: red;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* 3. USER AVATAR - Making sure it stays circular */
+.user-avatar {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; /* Prevents avatar from getting squished */
+}
+
+/* 4. POST CARD FIX - Overall spacing */
+.post-card {
+    background: white;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.post-body p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+
+
+/* --- PHOTO PREVIEW FIXES (POST FORM) --- */
+#preview-container {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+    flex-wrap: wrap;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+/* This forces the preview images to stay small */
+.preview-img {
+    width: 80px !important; 
+    height: 80px !important;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid #007bff;
+    display: inline-block;
+}
+
+.preview-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style the file label to look better */
+.file-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    background: #f8f9fa;
+    border: 2px dashed #ddd;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.file-label:hover {
+    background: #e9ecef;
+    border-color: #007bff;
+}
+
+/* --- DARK MODE & POST STYLING --- */
+.post-card {
+    background: var(--card-bg, #ffffff);
+    color: var(--text-color, #333333);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* Ensure matching with darkmode.css variables */
+body.dark-mode .post-card {
+    background: #1a1a1a !important;
+    color: #ffffff !important;
+    border: 1px solid #333;
+}
+
+body.dark-mode .post-content-text {
+    color: #efefef !important;
+}
+
+/* --- THREE DOT ALIGNMENT FIX --- */
+.post-header {
+    display: flex;
+    justify-content: space-between; /* Pushes user info left, dots right */
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+.user-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* --- DROPDOWN POSITIONING --- */
+.post-menu-container {
+    position: relative;
+}
+
+.post-options-dropdown {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+    min-width: 120px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+body.dark-mode .post-options-dropdown {
+    background: #222;
+    border-color: #444;
+}
+
+.post-options-dropdown.active {
+    display: flex;
+}
+
+.post-options-dropdown button {
+    padding: 10px;
+    border: none;
+    background: none;
+    text-align: left;
+    color: inherit;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.post-options-dropdown button:hover {
+    background: #f5f5f5;
+}
+
+body.dark-mode .post-options-dropdown button:hover {
+    background: #333;
+}
+
+/* --- SIDE MENU INTERNALS --- */
+
+/* Header of the menu */
+.menu-header {
+    padding: 25px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.menu-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--primary-color, #007bff);
+}
+
+#close-menu {
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 10px;
+    color: #888;
+    transition: 0.3s;
+}
+
+/* Links and Content Area */
+.menu-content {
+    padding: 15px 0;
+}
+
+.menu-content a {
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    text-decoration: none;
+    color: #444;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: 0.2s ease;
+    gap: 15px; /* Spacing between icon and text */
+}
+
+.menu-content a i {
+    width: 25px; /* Ensures all icons align vertically */
+    font-size: 1.1rem;
+    color: #666;
+}
+
+.menu-content a:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+    color: var(--primary-color, #007bff);
+}
+
+.menu-content a:hover i {
+    color: var(--primary-color, #007bff);
+}
+
+/* Horizontal Line */
+.menu-content hr {
+    border: none;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    margin: 15px 25px;
+}
+
+/* Logout Button Styling */
+.btn-logout {
+    width: calc(100% - 40px);
+    margin: 20px;
+    padding: 12px;
+    background: #fff0f0;
+    color: #dc3545;
+    border: 1px solid #ffcccc;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.3s;
+}
+
+.btn-logout:hover {
+    background: #dc3545;
+    color: white;
+}
+
+/* --- DARK MODE OVERRIDES --- */
+body.dark-mode .menu-header {
+    border-bottom-color: #333;
+}
+
+body.dark-mode .menu-content a {
+    color: #eee;
+}
+
+body.dark-mode .menu-content a i {
+    color: #aaa;
+}
+
+body.dark-mode .menu-content a:hover {
+    background-color: #222;
+}
+
+body.dark-mode .menu-content hr {
+    border-top-color: #333;
+}
+
+body.dark-mode .btn-logout {
+    background: #2a1a1a;
+    border-color: #4a2222;
+}
