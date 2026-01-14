@@ -236,28 +236,43 @@ window.viewFullImage = (url) => {
 };
 
 
-// --- 6. INITIALIZATION ---
+// --- 6. CLEAN INITIALIZATION ---
 document.addEventListener('DOMContentLoaded', async () => {
-    // 1. Initialize UI Components
+    // 1. Setup side menu
     setupMenu();
     
-    // 2. Auth & Profile Check
+    // 2. Get User & Verify Profile
     const { data: { user } } = await _supabase.auth.getUser();
     if (user) {
-        checkUserProfile(user);
+        // Ensure profile exists in DB
+        const { data: profile } = await _supabase
+            .from('profiles')
+            .select('id')
+            .eq('id', user.id)
+            .single();
+
+        if (!profile) {
+            await _supabase.from('profiles').insert([
+                { id: user.id, full_name: user.user_metadata.full_name || 'FUTIA Student' }
+            ]);
+        }
+    } else {
+        window.location.href = 'index.html'; // Redirect if not logged in
+        return;
     }
 
-    // 3. Load Data
+    // 3. LOAD FEED ONCE
+    // Removed the extra fetchFeed() calls that were causing duplicates
     fetchFeed();
 
-    // 4. Global Click Listener to close dropdowns when clicking outside
+    // 4. Global Click Listener for dropdowns
     document.addEventListener('click', (e) => {
         if (!e.target.classList.contains('post-menu-trigger')) {
             document.querySelectorAll('.post-options-dropdown').forEach(m => m.classList.remove('active'));
         }
     });
 
-    // 5. Button Listeners
+    // 5. Button Listeners (Assigned once)
     const logoutBtn = document.getElementById('logout-btn');
     if (logoutBtn) {
         logoutBtn.onclick = async () => {
@@ -267,13 +282,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const submitBtn = document.getElementById('submit-post');
-    if (submitBtn) submitBtn.onclick = submitPost;
+    if (submitBtn) {
+        submitBtn.onclick = null; // Clear any old listeners
+        submitBtn.onclick = submitPost;
+    }
 
     const postPhotoInput = document.getElementById('post-photo');
     if (postPhotoInput) {
         postPhotoInput.onchange = (e) => {
             const container = document.getElementById('preview-container');
             const files = Array.from(e.target.files);
+            container.innerHTML = ''; // Clear previous previews
+            selectedPhotos = []; // Reset selection
             files.forEach(file => {
                 selectedPhotos.push(file);
                 const reader = new FileReader();
